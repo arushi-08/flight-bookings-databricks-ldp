@@ -1,6 +1,6 @@
 # Flight Bookings Lakehouse Project (Databricks LDP)
 
-This project demonstrates how to build a **Lakehouse architecture** on Databricks using the **Declarative Pipeline (LDP)**.  
+This project demonstrates how to build a **Lakehouse architecture** on Databricks using the **Declarative Pipeline (LDP)** and dynamic notebooks.  
 It covers **incremental ingestion (Bronze)**, **transformations (Silver)**, and **upserts (Gold)** for a flight bookings dataset.  
 
 ---
