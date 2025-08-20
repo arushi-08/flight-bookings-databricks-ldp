@@ -1,0 +1,24 @@
+resources:
+  jobs:
+    BronzeIngestion:
+      name: BronzeIngestion
+      tasks:
+        - task_key: Parameters
+          notebook_task:
+            notebook_path: /Workspace/Flight Project/SrcParameters
+            source: WORKSPACE
+        - task_key: IncrementalIngestion
+          depends_on:
+            - task_key: Parameters
+          for_each_task:
+            inputs: "{{tasks.Parameters.values.output_key}}"
+            task:
+              task_key: IncrementalIngestion_iteration
+              notebook_task:
+                notebook_path: /Workspace/Flight Project/BronzeLayer
+                base_parameters:
+                  src: "{{input.src}}"
+                source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: STANDARD
