@@ -1,0 +1,55 @@
+
+version: 2
+
+models:
+    - name: fact_bookings
+      description: "Booking grain = passenger x flight x airport x booking_date"
+      config:
+        contract:
+          enforced: true
+      columns:
+          - name: dim_passengers_key
+            description: "FK to dim_passengers"
+            data_type: bigint
+            tests:
+                - not_null
+          - name: dim_flights_key
+            description: "FK to dim_flights"
+            data_type: bigint
+            tests:
+                - not_null
+          - name: dim_airports_key
+            description: "FK to dim_airports"
+            data_type: bigint
+            tests:
+                - not_null
+          - name: amount
+            data_type: double 
+          - name: booking_date
+            data_type: date
+            tests:
+                - not_null
+
+      tests:
+        - dbt_utils.unique_combination_of_columns:
+            combination_of_columns:
+              - dim_passengers_key
+              - dim_flights_key
+              - dim_airports_key
+              - booking_date
+        
+        - dbt_utils.relationships:
+            to: ref('dim_passengers')
+            field: dim_passengers_key
+            to_field: dim_passengers_key
+        
+        - dbt_utils.relationships:
+            to: ref('dim_flights')
+            field: dim_flights_key
+            to_field: dim_flights_key
+        
+        - dbt_utils.relationships:
+            to: ref('dim_airports')
+            field: dim_airports_key
+            to_field: dim_airports_key
+        
