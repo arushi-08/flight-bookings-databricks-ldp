@@ -1,6 +1,6 @@
 # Flight Bookings Lakeflow Project (Databricks LDP)
 
-This project demonstrates how to build a **Lakeflow architecture** on Databricks using the **Declarative Pipeline (LDP)** and dynamic notebooks.  
+This project demonstrates how to build a **Delta architecture** on Databricks using the **Lakeflow Declarative Pipeline (LDP)** and dynamic notebooks.  
 It covers **incremental ingestion (Bronze)**, **transformations (Silver)**, and **upserts (Gold)** for a flight bookings dataset.  
 
 ---
