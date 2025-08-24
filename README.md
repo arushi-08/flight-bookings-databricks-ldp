@@ -1,6 +1,6 @@
-# Flight Bookings Lakehouse Project (Databricks LDP)
+# Flight Bookings Lakeflow Project (Databricks LDP)
 
-This project demonstrates how to build a **Lakehouse architecture** on Databricks using the **Declarative Pipeline (LDP)** and dynamic notebooks.  
+This project demonstrates how to build a **Lakeflow architecture** on Databricks using the **Declarative Pipeline (LDP)** and dynamic notebooks.  
 It covers **incremental ingestion (Bronze)**, **transformations (Silver)**, and **upserts (Gold)** for a flight bookings dataset.  
 
 ---
@@ -10,7 +10,7 @@ The project follows the **Medallion Architecture**:
 
 - **Raw Layer**: Landing zone for source data in CSV format.  
 - **Bronze Layer**: Incremental ingestion from raw → Delta format with schema evolution.  
-- **Silver Layer**: Cleaned and transformed data using Lakehouse Declarative Pipeline (LDP).  
+- **Silver Layer**: Cleaned and transformed data using Lakeflow Declarative Pipeline (LDP).  
 - **Gold Layer**: Business-ready data with **upserts** applied dynamically for analytics and reporting.  
 
 ---
@@ -31,7 +31,7 @@ query example
 ---
 
 🥈 Silver Layer (Transformations with LDP)
-The Lakehouse Declarative Pipeline (LDP) is used to transform the Bronze data into a clean Silver layer.
+The Lakeflow Declarative Pipeline (LDP) is used to transform the Bronze data into a clean Silver layer.
 Data cleaning and standardization.
 Deduplication and type enforcement.
 Stored as Delta tables for further transformations.
